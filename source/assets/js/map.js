@@ -105,7 +105,7 @@ var $googleMap = {
     },
     dropDownFill: function () {
         try {
-            $json = JSON.parse(document.getElementById('map_content:mapModel').value);
+            $json = JSON.parse(document.getElementById('mapModel').value);
             $('#start').empty();
             $('#finish').empty();
             var tempPoint;
@@ -152,7 +152,6 @@ var $googleMap = {
                 clearInterval($mylocationinterval);
             }
         }, 30000);
-
     },
     controlToUpdateLocation: function () {
         $('select#locationOnOf').live('change', function () {
@@ -165,7 +164,7 @@ var $googleMap = {
         });
     },
     markerUpdate: function ($this) {
-        findMe();
+        //back-end fonksiyonu gelecek
         $googleMap.init($this);
     },
     zoomChange: function () {
@@ -301,7 +300,7 @@ var $googleMap = {
         var mymarker = new google.maps.Marker({
             position: obj,
             map: $map,
-            icon: path + '/images/neredeyim.png'
+            icon: 'assets/imgs/my.png'
         });
         $myMarkerArray.push(mymarker);
     },
@@ -309,7 +308,7 @@ var $googleMap = {
         var marker = new google.maps.Marker({
             position: obj,
             map: $map,
-            icon: path + '/images/pin3-' + id + '.png'
+            icon: 'assets/imgs/' + id + '.png'
         });
         $markerArray.push(marker);
     },

@@ -10,10 +10,49 @@
 .clearfix {
 	display:inline-block;
 }
-/* Hides from IE-mac \*/
 * html .clearfix {
 	height:1%;
 }
 .clearfix {
 	display: block;
 }
+.ui-btn-text {
+	font-weight:normal;
+}
+.ui-icon.ui-icon-reload {
+	background: url("../imgs/reload.png") no-repeat scroll 0 0 transparent;
+	border-radius: 0 0 0 0;
+	box-shadow: none;
+	display: block;
+	height: 18px;
+	width: 14px;
+}
+.ui-body-c, .ui-overlay-c {
+	background:#F1F1F1;
+}
+.ui-focus, .ui-btn:focus {
+	box-shadow:none;
+}
+.leftBar {
+	border-right: 1px solid #CCCCCC;
+	display: block;
+	float: left;
+	min-height: 100%;
+	width: 29%;
+}
+.rightContent {
+	float:right;
+	width:70%;
+	display:block;
+	min-height:100%;
+}
+.leftBar .ui-listview {
+	margin: 0 0 0 -15px;
+}
+.leftBar .ui-listview-filter {
+	border-top: 1px solid #CCCCCC;
+	margin: 0 0 0 -15px;
+}
+.ui-input-text.ui-focus, .ui-input-search.ui-focus{
+	box-shadow:none;
+	}

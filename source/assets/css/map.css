@@ -1,0 +1,151 @@
+.mapContainer {
+	margin: -15px -15px 0;
+	position: relative;
+}
+.updateToMarkerFrame {
+	bottom: 0;
+	opacity: 0.7;
+	position: absolute;
+	width: 100%;
+	z-index: 999;
+}
+.updateToMarkerFrame .ui-btn.ui-btn-corner-all {
+	background: none repeat scroll 0 0 #000000;
+	border: 0 none;
+	border-radius: 0 0 0 0;
+	color: #FFFFFF;
+	margin: 0;
+	text-shadow: none;
+}
+.updateToMarkerFrame .ui-btn.ui-btn-corner-all.ui-btn-hover-c {
+	background:#2d2d2d;
+}
+.updateToMarkerFrame .ui-btn.ui-btn-corner-all button {
+	border: 0 none;
+	border-radius: 0 0 0 0;
+	box-shadow: none;
+	opacity: 0;
+	padding: 0;
+}
+.updateToMarkerFrame .ui-btn.ui-btn-corner-all .ui-btn-inner {
+	border: 0 none;
+	border-radius: 0 0 0 0;
+	box-shadow: none;
+	padding: 4px 30px;
+}
+.ui-field-contain label.ui-slider {
+	font-size: 13px;
+	margin: 6px 5px 0 -15px;
+	text-align: right;
+	float:left;
+	width: 55%;
+}
+div.ui-slider-switch.ui-slider-mini {
+	height: 25px;
+	margin: 0;
+	width:  4.5em;
+	float:left;
+}
+.ui-slider-mini span.ui-slider-label {
+	font-size: 13px;
+	font-weight: normal;
+	height: 25px;
+}
+div.ui-slider-switch.ui-slider-mini .ui-slider-inneroffset {
+	height: 0;
+	margin: 0 14px;
+}
+.ui-slider-mini span.ui-slider-label {
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 25px;
+}
+ @media ( max-width : 450px) {
+.ui-field-contain label.ui-slider {
+	width: 72%;
+}
+}
+div.ui-slider-switch.ui-slider-mini .ui-slider-handle {
+	height: 20px;
+	margin: 1px 0 0 -13px;
+	width: 20px;
+}
+div.ui-slider-switch.ui-slider-mini .ui-slider-inneroffset {
+	width: 47px;
+}
+.slider {
+	border: 0 none;
+	margin: 0 0 5px;
+	text-align: center;
+}
+.mapChooseFrame {
+	margin: 0;
+}
+.mapChooseFrame .ui-select {
+	float: left;
+	width: 46%;
+}
+ .mapChooseFrame .ui-select ~ .ui-select {
+ float: right;
+}
+.directions {
+	background: url("../imgs/direction.png") no-repeat scroll 0 0 transparent;
+	display: block;
+	float: right;
+	height: 41px;
+	margin: 5px 0 0 10px;
+	width: 42px;
+}
+.distanceInfo {
+	clear: both;
+	display: none;
+	float: left;
+	font-size: 13px;
+	margin: 0;
+	padding-top: 0;
+	text-align: center;
+	text-shadow: none;
+	width: 100%;
+}
+@media ( max-width : 450px) {
+.mapChooseFrame .ui-select {
+	width:38%;
+}
+.distanceInfo {
+	font-size: 11px;
+}
+}
+.road1 {
+	color: #4419C1;
+	display: none;
+	text-decoration: underline;
+}
+.noDecode, .noDecode1 {
+	text-decoration: none;
+}
+.road2 {
+	color: #05584D;
+	display: none;
+	text-decoration: underline;
+}
+.road3 {
+	color: #000000;
+	display: none;
+	text-decoration: underline;
+}
+.fnBold {
+	font-weight: bold;
+}
+.ui-btn-inner {
+	padding: 0.4em 20px;
+}
+.ui-collapsible-content {
+	padding:0;
+}
+div.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
+	height: 20px !important;
+	width: 20px !important;
+}
+.ui-focus, .ui-btn:focus{
+	box-shadow:none;
+	} 
