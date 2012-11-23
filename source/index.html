@@ -28,53 +28,39 @@
 
    <body>
 <section id="mapPage" data-role="page" data-title="Dashboard">
-     <header data-role="header" data-position="fixed">
-    <a class="home" href="#mapPage" data-transition="flip" data-icon="home">Giriş</a>
+     <header data-role="header" data-position="fixed"> <a class="home" href="#mapPage" data-transition="flip" data-icon="home"> Giriş </a>
     <h1>Ana Sayfa</h1>
   </header>
      <aside data-role="content">
     <ul data-role="listview" data-inset="true" data-filter="false">
-         <li>
-        <a rel="external" href="map.html" data-transition="fade">Tekli Map Örneği</a>
-      </li>
-         <li>
-        <a rel="external" href="#" data-transition="fade">Çoklu Map Örneği</a>
-      </li>
-         <li>
-        <a href="#Documentation">Pluging Kullanım Klavuzu</a>
-      </li>
+         <li> <a rel="external" href="map.html" data-transition="fade"> Tekli Map Örneği </a> </li>
+         <li> <a rel="external" href="#" data-transition="fade"> Çoklu Map Örneği </a> </li>
+         <li> <a href="#Documentation"> Pluging Kullanım Klavuzu </a> </li>
        </ul>
   </aside>
      <footer data-role="footer" data-id="foo1" data-position="fixed">
     <nav data-role="navbar">
          <ul>
-        <li>
-             <a href="map.html" rel="external">Tekli Map Örneği</a>
-           </li>
-        <li>
-             <a href="#" rel="external">Çoklu Map Örneği</a>
-           </li>
-        <li>
-             <a href="#Documentation" data-transition="flow">Kullanım Klavuzu</a>
-           </li>
+        <li> <a href="map.html" rel="external"> Tekli Map Örneği </a> </li>
+        <li> <a href="#" rel="external"> Çoklu Map Örneği </a> </li>
+        <li> <a href="#Documentation" data-transition="flow"> Kullanım Klavuzu </a> </li>
       </ul>
        </nav>
   </footer>
    </section>
 <!--Documentation Page-->
 <section id="Documentation" data-role="page" data-title="Documentation">
-     <header data-role="header" data-position="fixed" class="header">
-    <a class="home" href="#mapPage" data-transition="flip" data-icon="home">Giriş</a>
+     <header data-role="header" data-position="fixed" class="header"> <a class="home" href="#mapPage" data-transition="flip" data-icon="home"> Giriş </a>
     <h1>Kullanım Klavuzu</h1>
   </header>
      <aside data-role="content" class="clearfix">
-    <nav class="leftBar">  
-    <ul data-role="listview" data-filter="true" data-filter-placeholder="Menüde Ara">
-	<li><a href="home" data-role="none" class="menuLink">Acura</a></li>
-	<li><a href="javascript:void(0)" class="menuLink">Audi</a></li>
-	<li><a href="javascript:void(0)" class="menuLink">BMW</a></li>
-</ul>
-    </nav>
+    <nav class="leftBar">
+         <ul data-role="listview" data-filter="true" data-filter-placeholder="Menüde Ara">
+        <li class="active"> <a href="#home" data-role="none" class="menuLink"> Acura </a> </li>
+        <li> <a href="javascript:void(0)" class="menuLink"> Audi </a> </li>
+        <li> <a href="javascript:void(0)" class="menuLink"> BMW </a> </li>
+      </ul>
+       </nav>
     <aside class="rightContent">
          <pre class="brush: js; html-script: true">
 <div class="deneme"></div>
@@ -88,20 +74,25 @@
  */
  </script>
    </pre>
-       </aside>
-  </aside>
+       </aside> </aside>
      <footer data-role="footer" data-id="foo1" data-position="fixed">
     <nav data-role="navbar">
          <ul>
-        <li>
-             <a href="map.html" rel="external">Tekli Map Örneği</a>
-           </li>
-        <li>
-             <a href="#" rel="external" >Çoklu Map Örneği</a>
-           </li>
+        <li> <a href="map.html" rel="external"> Tekli Map Örneği </a> </li>
+        <li> <a href="#" rel="external" > Çoklu Map Örneği </a> </li>
       </ul>
        </nav>
   </footer>
    </section>
+<article class="article">
+     <pre id="home" class="brush: js; html-script: true">
+<div class="deneme"></div>
+<script>
+function ali (){
+	return false;
+};
+ </script>
+   </pre>
+   </article>
 </body>
 </html>

@@ -27,10 +27,12 @@
 	height: 18px;
 	width: 14px;
 }
-.ui-body-c, .ui-overlay-c {
+.ui-body-c,
+.ui-overlay-c {
 	background:#F1F1F1;
 }
-.ui-focus, .ui-btn:focus {
+.ui-focus,
+.ui-btn:focus {
 	box-shadow:none;
 }
 .leftBar {
@@ -53,6 +55,21 @@
 	border-top: 1px solid #CCCCCC;
 	margin: 0 0 0 -15px;
 }
-.ui-input-text.ui-focus, .ui-input-search.ui-focus{
+.ui-input-text.ui-focus,
+.ui-input-search.ui-focus {
 	box-shadow:none;
+}
+.article {
+	display:none;
+	visibility:hidden;
+}
+ul.ui-listview li.active {
+	background: linear-gradient(#444444, #2D2D2D) repeat scroll 0 0 #333333;
+	border: 1px solid #111111;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #111111;
+}
+ul.ui-listview li.active .ui-link-inherit{
+	color:#fff;
 	}
