@@ -97,15 +97,13 @@ div.ui-slider-switch.ui-slider-mini .ui-slider-inneroffset {
 	width: 42px;
 }
 .distanceInfo {
-	clear: both;
-	display: none;
-	float: left;
-	font-size: 13px;
-	margin: 0;
-	padding-top: 0;
-	text-align: center;
-	text-shadow: none;
-	width: 100%;
+  display: none;
+    font-size: 13px;
+    margin: 0;
+    padding-top: 0;
+    text-align: center;
+    text-shadow: none;
+    width: 100%;
 }
 @media ( max-width : 450px) {
 .mapChooseFrame .ui-select {
@@ -149,3 +147,17 @@ div.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
 .ui-focus, .ui-btn:focus{
 	box-shadow:none;
 	} 
+.markerListFrame{
+	margin-top:5px;
+	}
+.markerListFrame .ui-listview{
+	margin: 0 -15px;
+	}
+.markerListFrame .ui-listview .ui-btn-text .ui-link-inherit{
+	min-height: auto;
+    padding-left: 40px;
+	}
+.markerListFrame .ui-listview .ui-btn-text .ui-link-inherit .ui-li-thumb{
+	left: 10px;
+    top: 8px;
+	}
