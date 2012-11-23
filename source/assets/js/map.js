@@ -1,50 +1,60 @@
 /*
- * TurkcellMap Javascript Plugin v1.1.0
+ * TurkcellMap Javascript Plugin v1.2.0
  * Licensed under the MIT license.
  * Copyright G.Burak Demirezen
  * Edit Date 11.23.2012
-*/
-var publicStatic = function(){
-	this.$map = null;
-	this.$mapOptions;
-	this.$point;
-	this.$mylocationinterval;
-	this.$mylocation;
-	this.$json;
-	this.$markerArray = [];
-	this.$myMarkerArray = [];
-	this.$directionArray = [];
-	this.$directionsService;
-	this.$position;
-	this.$myLatitude;
-	this.$myLongitude;
-	this.$directionsDisplay = null;
-	this.$zoom = null;
-	this.$updateLocation = true;
-	this.$colorPicker = ['#4419c1', '#05584d', '#000000'];
-	this.$opacityArray = ['0.7', '0.6', '0.5'];
-	this.$dropStart = '#start';
-	this.$dropFinish = '#finish';
-	this.$switch = '#locationOnOf';
-	this.$roadOne = '.road1';
-	this.$roadTwo = '.road2';
-	this.$roadTree = '.road3';
-	this.$direction = '.directions';
-	this.$singleDirection = '.goToDirection';
-	this.$distanceInfo = '.distanceInfo'
+ */
+var publicStatic = function () {
+    this.$map = null;
+    this.$mapOptions;
+    this.$point;
+    this.$mylocationinterval;
+    this.$mylocation;
+    this.$json;
+    this.$markerArray = [];
+    this.$myMarkerArray = [];
+    this.$directionArray = [];
+    this.$directionsService;
+    this.$position;
+    this.$myLatitude;
+    this.$myLongitude;
+    this.$directionsDisplay = null;
+    this.$zoom = null;
+    this.$updateLocation = true;
+    this.options = {
+        $colorPicker: ['#4419c1', '#05584d', '#000000'],
+        $opacityArray: ['0.7', '0.6', '0.5'],
+        $dropStart: '#start',
+        $dropFinish: '#finish',
+        $switch: '#locationOnOf',
+        $roadOne: '.road1',
+        $roadTwo: '.road2',
+        $roadTree: '.road3',
+        $direction: '.directions',
+        $singleDirection: '.goToDirection',
+        $distanceInfo: '.distanceInfo',
+        $distanceText: '.distance',
+        $distanceMinutes: '.minutes'
+    }
 }
 
 var $static = new publicStatic();
 
 var TurkcellMap = {
-    init: function ($this) {
+    init: function ($this, options) {
         $static.$map = null;
-		$static.$updateLocation = true;
+        $static.$updateLocation = true;
+        if (typeof options != 'undefined') {
+            TurkcellMap.changeProperty(options);
+        }
         google.maps.event.addDomListener(window, 'load', this.createMapObject($this));
         this.dropDownChange();
         this.goToLineOfTheRoad();
         this.mapResize();
-		this.singleGotoDirection();
+        this.singleGotoDirection();
+    },
+    changeProperty: function (options) {
+        $.extend($static.options, options);
     },
     createMapObject: function ($this) {
         TurkcellMap.forceClearToPublicStaticObject();
@@ -84,8 +94,8 @@ var TurkcellMap = {
         $static.$directionsDisplay = null;
         $static.$zoom = null;
         $static.$position = null;
-		$static.$myLatitude = null;
-		$static.$myLongitude = null;
+        $static.$myLatitude = null;
+        $static.$myLongitude = null;
     },
     markerClear: function () {
         for (var i = 0; i < $static.$markerArray.length; i++) {
@@ -120,8 +130,8 @@ var TurkcellMap = {
     dropDownFill: function () {
         try {
             $static.$json = JSON.parse(document.getElementById('mapModel').value);
-            $($static.$dropStart).empty();
-            $($static.$dropFinish).empty();
+            $($static.options.$dropStart).empty();
+            $($static.options.$dropFinish).empty();
             var tempPoint;
             var tempStart = '<option>Kalkış</option>';
             var tempFinish = '<option>Varış</option>';
@@ -133,8 +143,8 @@ var TurkcellMap = {
                 tempStart += '<option lat="' + $static.$json["mapData"][i].lat + '" lng="' + $static.$json["mapData"][i].lng + '">' + $static.$json["mapData"][i].id + '</option>';
                 tempFinish += '<option lat="' + $static.$json["mapData"][i].lat + '" lng="' + $static.$json["mapData"][i].lng + '">' + $static.$json["mapData"][i].id + '</option>';
             };
-            $($static.$dropStart).append(tempStart).selectmenu('refresh', true);
-            $($static.$dropFinish).append(tempFinish).selectmenu('refresh', true);
+            $($static.options.$dropStart).append(tempStart).selectmenu('refresh', true);
+            $($static.options.$dropFinish).append(tempFinish).selectmenu('refresh', true);
             this.updateToMyLocation();
         } catch (error) {
             console.error(error);
@@ -148,10 +158,10 @@ var TurkcellMap = {
                         var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                         $static.$myLatitude = position.coords.latitude;
                         $static.$myLongitude = position.coords.longitude;
-                        $($static.$dropStart).find("option:contains('Konumum')").attr("lat", $static.$myLatitude);
-                        $($static.$dropStart).find("option:contains('Konumum')").attr("lng", $static.$myLongitude);
-                        $($static.$dropFinish).find("option:contains('Konumum')").attr("lat", $static.$myLatitude);
-                        $($static.$dropFinish).find("option:contains('Konumum')").attr("lng", $static.$myLongitude);
+                        $($static.options.$dropStart).find("option:contains('Konumum')").attr("lat", $static.$myLatitude);
+                        $($static.options.$dropStart).find("option:contains('Konumum')").attr("lng", $static.$myLongitude);
+                        $($static.options.$dropFinish).find("option:contains('Konumum')").attr("lat", $static.$myLatitude);
+                        $($static.options.$dropFinish).find("option:contains('Konumum')").attr("lng", $static.$myLongitude);
                         $static.$map.setCenter(pos);
                         TurkcellMap.addToMyMarker($static.$map.center);
                         if ($static.$zoom == null) {
@@ -168,7 +178,7 @@ var TurkcellMap = {
         }, 30000);
     },
     controlToUpdateLocation: function () {
-        $($static.$switch).on('change', function () {
+        $($static.options.$switch).on('change', function () {
             if (this.value == 'true') {
                 $static.$updateLocation = true;
                 TurkcellMap.updateToMyLocation();
@@ -187,7 +197,7 @@ var TurkcellMap = {
         });
     },
     createToLineOfTheRoad: function (_start, _end, _type) {
-       this.clearDirection();
+        this.clearDirection();
         var request = {
             origin: _start,
             destination: _end,
@@ -198,50 +208,51 @@ var TurkcellMap = {
             if (status == google.maps.DirectionsStatus.OK) {
                 for (var i = 0; i < response.routes.length; i++) {
                     TurkcellMap.directionsRender(response, i);
-					if(i == 0){
-						TurkcellMap.fullCalculateDistances(response.routes);
-					}
+                    if (i == 0) {
+                        TurkcellMap.fullCalculateDistances(response.routes);
+                    }
                 }
             }
         });
     },
-	fullCalculateDistances:function(response){
-		$($static.$roadOne + ',' + $static.$roadTwo + ','+ $static.$roadTree +', span.noDecode, span.noDecode1').hide();
-		$($static.$distanceInfo).show();
-		for (var i = 0; i < response.length; i++) {
-			TurkcellMap.responseFullCalculate(i,response[i].legs[0].distance,response[i].legs[0].duration);
-		}	
-	},
-	responseFullCalculate:function(count,distance,duration){
-		duration = parseInt(duration.value / 60) + ' dk';
-		switch (count){
-			case 0:
-				$($static.$roadOne).children('span.distance').text(distance.text);
-            	$($static.$roadOne).children('span.minutes').text(duration);
-				$($static.$roadOne).show();
-			break;
-			case 1:
-				$($static.$roadTwo).children('span.distance').text(distance.text);
-            	$($static.$roadTwo).children('span.minutes').text(duration);
-				$($static.$roadTwo).show();
-				$('span.noDecode').show();
-			break;
-			case 2:
-				$($static.$roadTree).children('span.distance').text(distance.text);
-            	$($static.$roadTree).children('span.minutes').text(duration);
-				$($static.$roadTree).show();
-				$('span.noDecode1').show();
-			break;
-			default:
-				console.log('3 Den Fazla Alternatif Yol Var.');
-			break;
-		}
-	},
-	singleCenter:function(position){
-		var posArray = position.split(',');
-		var center = new google.maps.LatLng(posArray[0],posArray[1]);
-		$static.$map.setCenter(center);
-	},
+    fullCalculateDistances: function (response) {
+        $($static.options.$roadOne + ',' + $static.options.$roadTwo + ',' + $static.options.$roadTree + ', span.noDecode, span.noDecode1').hide();
+        $($static.options.$distanceInfo).show();
+        for (var i = 0; i < response.length; i++) {
+            TurkcellMap.responseFullCalculate(i, response[i].legs[0].distance, response[i].legs[0].duration);
+        }
+    },
+    responseFullCalculate: function (count, distance, duration) {
+        duration = parseInt(duration.value / 60) + ' dk';
+        switch (count) {
+            case 0:
+                $($static.options.$roadOne).children($static.options.$distanceText).text(distance.text);
+                $($static.options.$roadOne).children($static.options.$distanceMinutes).text(duration);
+                $($static.options.$roadOne).show();
+                break;
+            case 1:
+                $($static.options.$roadTwo).children($static.options.$distanceText).text(distance.text);
+                $($static.options.$roadTwo).children($static.options.$distanceMinutes).text(duration);
+                $($static.options.$roadTwo).show();
+                $('span.noDecode').show();
+                break;
+            case 2:
+                $($static.options.$roadTree).children($static.options.$distanceText).text(distance.text);
+                $($static.options.$roadTree).children($static.options.$distanceMinutes).text(duration);
+                $($static.options.$roadTree).show();
+                $('span.noDecode1').show();
+                break;
+            default:
+                console.log('3 Den Fazla Alternatif Yol Var.');
+                break;
+        }
+    },
+    singleCenter: function (position) {
+        var posArray = position.split(',');
+        var center = new google.maps.LatLng(posArray[0], posArray[1]);
+        $static.$map.setCenter(center);
+        $static.$map.setZoom(15);
+    },
     directionsRender: function (response, count) {
         $static.$directionsDisplay = new google.maps.DirectionsRenderer({
             map: $static.$map,
@@ -249,8 +260,8 @@ var TurkcellMap = {
             draggable: false,
             preserveViewport: false,
             polylineOptions: {
-                strokeColor: (count > $static.$colorPicker.length - 1) ? $static.$colorPicker[2] : $static.$colorPicker[count],
-                strokeOpacity: (count > $static.$colorPicker.length - 1) ? $static.$opacityArray[2] : $static.$opacityArray[count]
+                strokeColor: (count > $static.options.$colorPicker.length - 1) ? $static.options.$colorPicker[2] : $static.options.$colorPicker[count],
+                strokeOpacity: (count > $static.options.$colorPicker.length - 1) ? $static.options.$opacityArray[2] : $static.options.$opacityArray[count]
             }
         });
         $static.$directionsDisplay.setMap($static.$map);
@@ -284,26 +295,26 @@ var TurkcellMap = {
         } else {
             var distance = response.rows[0].elements[0].distance.text;
             var minutes = parseInt(response.rows[0].elements[0].duration.value / 60) + ' Dk';
-            $('span.distance').text(distance);
-            $('span.minutes').text(minutes);
+            $($static.options.$distanceText).text(distance);
+            $($static.options.$distanceMinutes).text(minutes);
         }
     },
     goToLineOfTheRoad: function () {
-        $($static.$direction).live('click', function () {
-            var start = new google.maps.LatLng($($static.$dropStart + " option:selected").attr('lat'), $($static.$dropStart+ " option:selected").attr('lng'));
-            var end = new google.maps.LatLng($($static.$dropFinish + " option:selected").attr('lat'), $($static.$dropFinish+ " option:selected").attr('lng'));
+        $($static.options.$direction).on('click', function () {
+            var start = new google.maps.LatLng($($static.options.$dropStart + " option:selected").attr('lat'), $($static.options.$dropStart + " option:selected").attr('lng'));
+            var end = new google.maps.LatLng($($static.options.$dropFinish + " option:selected").attr('lat'), $($static.options.$dropFinish + " option:selected").attr('lng'));
             TurkcellMap.createToLineOfTheRoad(start, end, true);
             return false;
         });
     },
-	singleGotoDirection:function(){
-		$($static.$singleDirection).on('click',function(){
-			var start = new google.maps.LatLng($myLatitude,$myLongitude);
+    singleGotoDirection: function () {
+        $($static.options.$singleDirection).on('click', function () {
+            var start = new google.maps.LatLng($myLatitude, $myLongitude);
             var end = new google.maps.LatLng($json["mapData"][0].lat, $json["mapData"][0].lng);
             TurkcellMap.createToLineOfTheRoad(start, end, false);
             return false;
-		});
-	},
+        });
+    },
     addToMyMarker: function (obj) {
         for (var i = 0; i < $static.$myMarkerArray.length; i++) {
             $static.$myMarkerArray[i].setMap(null);
@@ -324,7 +335,7 @@ var TurkcellMap = {
         $static.$markerArray.push(marker);
     },
     dropDownChange: function () {
-        $('body').on('change', $static.$dropStart, function () {
+        $('body').on('change', $static.options.$dropStart, function () {
             TurkcellMap.chooseGenerator(this.options[this.selectedIndex].text);
         });
     },
@@ -338,7 +349,7 @@ var TurkcellMap = {
                 temp += '<option lat="' + $static.$json["mapData"][i].lat + '" lng="' + $static.$json["mapData"][i].lng + '" >' + $static.$json["mapData"][i].id + '</option>';
             }
         };
-        $($static.$dropFinish).empty();
-        $($static.$dropFinish).append(temp).selectmenu('refresh', true);
+        $($static.options.$dropFinish).empty();
+        $($static.options.$dropFinish).append(temp).selectmenu('refresh', true);
     }
 };

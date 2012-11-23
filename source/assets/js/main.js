@@ -1,6 +1,6 @@
 $(function(){
 	var url = null;
-	var stringBuilder = null;
+	//var stringBuilder = null;
 	/*$('a.menuLink').on('click',function(){
 		url = $(this).attr('href');
 		$.ajax({

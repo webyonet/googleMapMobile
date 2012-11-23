@@ -86,7 +86,10 @@
 </section>
 <script>
 $(function(){
-	TurkcellMap.init(document.getElementById('map_canvas'));
+	TurkcellMap.init(document.getElementById('map_canvas'),{
+		$dropStart : '#start',
+		$dropFinish : '#finish'
+		});
 });
 </script>
 </body>
