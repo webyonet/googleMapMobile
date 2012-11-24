@@ -1,7 +1,6 @@
 /*
- * TurkcellMap Javascript Plugin v1.2.0
- * Licensed under the MIT license.
- * Copyright G.Burak Demirezen
+ * TurkcellMap Javascript Plugin v1.2.2
+ * Author G.Burak Demirezen
  * Edit Date 11.23.2012
  */
 var publicStatic = function () {
@@ -34,7 +33,8 @@ var publicStatic = function () {
         $singleDirection: '.goToDirection',
         $distanceInfo: '.distanceInfo',
         $distanceText: '.distance',
-        $distanceMinutes: '.minutes'
+        $distanceMinutes: '.minutes',
+		$data : 'mapModel'
     }
 }
 
@@ -43,10 +43,7 @@ var $static = new publicStatic();
 var TurkcellMap = {
     init: function ($this, options) {
         $static.$map = null;
-        $static.$updateLocation = true;
-        if (typeof options != 'undefined') {
-            TurkcellMap.changeProperty(options);
-        }
+        this.changeProperty(options);
         google.maps.event.addDomListener(window, 'load', this.createMapObject($this));
         this.dropDownChange();
         this.goToLineOfTheRoad();
@@ -54,7 +51,9 @@ var TurkcellMap = {
         this.singleGotoDirection();
     },
     changeProperty: function (options) {
-        $.extend($static.options, options);
+		if (typeof options != 'undefined') {
+        	$.extend($static.options, options);
+		}
     },
     createMapObject: function ($this) {
         TurkcellMap.forceClearToPublicStaticObject();
@@ -129,7 +128,7 @@ var TurkcellMap = {
     },
     dropDownFill: function () {
         try {
-            $static.$json = JSON.parse(document.getElementById('mapModel').value);
+            $static.$json = JSON.parse(document.getElementById($static.options.$data).value);
             $($static.options.$dropStart).empty();
             $($static.options.$dropFinish).empty();
             var tempPoint;
@@ -187,8 +186,8 @@ var TurkcellMap = {
             }
         });
     },
-    markerUpdate: function ($this) {
-        //back-end fonksiyonu gelecek
+    markerUpdate: function ($this,$onStart) {
+		$callback;
         TurkcellMap.init($this);
     },
     zoomChange: function () {

@@ -1,98 +1,366 @@
 <!DOCTYPE HTML>
 <html>
-   <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <title>Mobile Sfa Prototype</title>
-   <link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-1.2.0.min.css" />
-   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-   <link type="text/css" rel="stylesheet" href="assets/css/shCoreDefault.css"/>
-   <script src="assets/js/jquery-1.8.2.min.js" type="text/javascript"></script>
-   <script>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Mobile Sfa Prototype</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-1.2.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/shCoreDefault.css"/>
+    <script src="assets/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script>
 	$(document).bind("mobileinit", function(){
 		$.mobile.defaultPageTransition  = 'slide';
 		$.mobile.loadingMessageTextVisible = false;
 	});
    </script>
-   <script src="assets/js/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-   <script src="assets/js/main.js" type="text/javascript"></script>
-   <script type="text/javascript" src="assets/js/shCore.js"></script>
-   <script type="text/javascript" src="assets/js/shBrushJScript.js"></script>
-   <script type="text/javascript" src="assets/js/shBrushXml.js"></script>
-   <script type="text/javascript">
+    <script src="assets/js/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+    <script src="assets/js/main.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/shCore.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushJScript.js"></script>
+    <script type="text/javascript" src="assets/js/shBrushXml.js"></script>
+    <script type="text/javascript">
 	SyntaxHighlighter.defaults['toolbar'] = false;
 	SyntaxHighlighter.config.bloggerMode = true;
 	SyntaxHighlighter.defaults['smart-tabs'] = true;
 	SyntaxHighlighter.all();
    </script>
-   </head>
-
-   <body>
-<section id="mapPage" data-role="page" data-title="Dashboard">
-     <header data-role="header" data-position="fixed"> <a class="home" href="#mapPage" data-transition="flip" data-icon="home"> Giriş </a>
-    <h1>Ana Sayfa</h1>
-  </header>
-     <aside data-role="content">
-    <ul data-role="listview" data-inset="true" data-filter="false">
-         <li> <a rel="external" href="map.html" data-transition="fade"> Tekli Map Örneği </a> </li>
-         <li> <a rel="external" href="#" data-transition="fade"> Çoklu Map Örneği </a> </li>
-         <li> <a href="#Documentation"> Pluging Kullanım Klavuzu </a> </li>
-       </ul>
-  </aside>
-     <footer data-role="footer" data-id="foo1" data-position="fixed">
-    <nav data-role="navbar">
-         <ul>
-        <li> <a href="map.html" rel="external"> Tekli Map Örneği </a> </li>
-        <li> <a href="#" rel="external"> Çoklu Map Örneği </a> </li>
-        <li> <a href="#Documentation" data-transition="flow"> Kullanım Klavuzu </a> </li>
+  </head>
+  
+  <body>
+  <section id="mapPage" data-role="page" data-title="Dashboard">
+    <header data-role="header" data-position="fixed">
+      <a class="home" href="#mapPage" data-transition="flip" data-icon="home"> Giriş </a>
+      <h1>Ana Sayfa</h1>
+    </header>
+    <aside data-role="content">
+      <ul data-role="listview" data-inset="true" data-filter="false">
+        <li>
+          <a rel="external" href="map.html" data-transition="fade"> Map Örneği </a>
+        </li>
+        <li>
+          <a href="#Documentation"> Pluging Kullanım Klavuzu </a>
+        </li>
       </ul>
-       </nav>
-  </footer>
-   </section>
-<!--Documentation Page-->
-<section id="Documentation" data-role="page" data-title="Documentation">
-     <header data-role="header" data-position="fixed" class="header"> <a class="home" href="#mapPage" data-transition="flip" data-icon="home"> Giriş </a>
-    <h1>Kullanım Klavuzu</h1>
-  </header>
-     <aside data-role="content" class="clearfix">
-    <nav class="leftBar">
-         <ul data-role="listview" data-filter="true" data-filter-placeholder="Menüde Ara">
-        <li class="active"> <a href="#home" data-role="none" class="menuLink"> Acura </a> </li>
-        <li> <a href="javascript:void(0)" class="menuLink"> Audi </a> </li>
-        <li> <a href="javascript:void(0)" class="menuLink"> BMW </a> </li>
-      </ul>
-       </nav>
-    <aside class="rightContent">
-         <pre class="brush: js; html-script: true">
-<div class="deneme"></div>
-<script>
+    </aside>
+    <footer data-role="footer" data-id="foo1" data-position="fixed">
+      <nav data-role="navbar">
+        <ul>
+          <li>
+            <a href="map.html" rel="external"> Map Örneği </a>
+          </li>
+          <li>
+            <a href="#Documentation" data-transition="flow"> Kullanım Klavuzu </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </section>
+  <!--Documentation Page-->
+  <section id="Documentation" data-role="page" data-title="Documentation">
+    <header data-role="header" data-position="fixed" class="header">
+      <a class="home" href="#mapPage" data-transition="flip" data-icon="home"> Giriş </a>
+      <h1>Kullanım Klavuzu</h1>
+    </header>
+    <aside data-role="content" class="clearfix">
+      <nav class="leftBar">
+        <ul data-role="listview" data-filter="true" data-filter-placeholder="Menüde Ara">
+          <li class="active">
+            <a href="#lesson1" class="menuLink"> Başlarken </a>
+          </li>
+          <li>
+            <a href="#lesson2" class="menuLink"> Giriş </a>
+          </li>
+          <li>
+            <a href="#lesson3" class="menuLink"> Pluging Options </a>
+          </li>
+          <li>
+            <a href="#lesson4" class="menuLink"> Marker Nasıl Oluşturulur? </a>
+          </li>
+          <li>
+            <a href="#lesson5" class="menuLink"> Seçim Kutuları Nasıl Oluşturulur? </a>
+          </li>
+          <li>
+            <a href="#lesson6" class="menuLink"> Yol Haritası Nasıl Oluşturulur? </a>
+          </li>
+          <li>
+            <a href="#lesson7" class="menuLink"> Neredeyim Butonu Nasıl Oluşturulur? </a>
+          </li>
+          <li>
+            <a href="#lesson8" class="menuLink"> Yakınımdaki Kişileri Nasıl Güncellerim? </a>
+          </li>
+          <li>
+            <a href="#lesson9" class="menuLink"> İlgili Marker'a Nasıl Giderim? </a>
+          </li>
+        </ul>
+      </nav>
+      <aside class="rightContent">
+        <h1 class="head">Map Structured</h1>
+        <article>
+          <p>Head tag'ına Google Map script'i eklenir.</p>
+          <p>Body tagının içine div yada herhangi bir display block elementi eklenir ve bir id ile unique olması sağlanır.</p>
+          <p>Google Map ilgili DOM elementinin static bir width ve height değeri almasını şart koşar.</p>
+        </article>
+        <h2>Örnek :</h2>
+        <pre class="brush: js; html-script: true">
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+    
+	&lt;body&gt;
+		<div id="map_canvas" style="width:100%;height:250px"></div>
+	&lt;/body&gt;
+&lt;/html&gt;
+   </pre>
+      </aside>
+    </aside>
+    <footer data-role="footer" data-id="foo1" data-position="fixed">
+      <nav data-role="navbar">
+        <ul>
+          <li>
+            <a href="map.html" rel="external"> Map Örneği </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </section>
+  <article class="article">
+    <div id="lesson1">
+      <h1 class="head">Map Structured</h1>
+      <article>
+        <p>Head tag'ına Google Map script'i eklenir.</p>
+        <p>Body tagının içine div yada herhangi bir display block elementi eklenir ve bir id ile unique olması sağlanır.</p>
+        <p>Google Map ilgili DOM elementinin static bir width ve height değeri almasını şart koşar.</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+    
+	&lt;body&gt;
+		<div id="map_canvas" style="width:100%;height:250px"></div>
+	&lt;/body&gt;
+&lt;/html&gt;
+   </pre>
+    </div>
+    <div id="lesson2">
+      <h1 class="head">Giriş</h1>
+      <article>
+        <p>Pluging'i kullanmak için sayfa içinde yada external bir js dosyasına document ready event ine "TurkcellMap.init" nesnesine çağrıda bulunulur.</p>
+        <p>Bu Nesne map canvasını load edeceği Dom elementinin id sini ister. Ör: "map_canvas"</p>
+        <p>Bu çağrıyı document.getElementById('map_canvas') yada $('#map_canvas').get(0) yada $('#map_canvas')[0] ile yapabilirsiniz</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+&lt;script&gt;
+$(function(){
+	/*javascript ile çağrı*/
+	TurkcellMap.init(document.getElementById('map_canvas'));
+	
+	/*jquery ile çağrı*/
+	TurkcellMap.init($('#map_canvas').get(0));
+	
+	/*jquery ile alternatif çağrı*/
+	TurkcellMap.init($('#map_canvas')[0]);
+});
+&lt;/script&gt;
+   </pre>
+    </div>
+    <div id="lesson3">
+      <h1 class="head">Options</h1>
+      <article>
+        <p>Pluging in içerisende kullanılan drop down menü , switch gibi form elementlerinin id yada class larını değiştirmek için kullanılır.</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+&lt;script&gt;
+$(function(){
+	TurkcellMap.init(document.getElementById('map_canvas'),{
+    	$dropStart : '#start',
+		$dropFinish : '#finish'
+    });
 /**
- * SyntaxHighlighter
- * http://alexgorbatchev.com/SyntaxHighlighter
- *
- * SyntaxHighlighter is donationware. If you are using it, please donate.
- * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
- */
- </script>
+*	Options Özellikleri
+*
+*	$colorPicker: ['#4419c1', '#05584d', '#000000'], // Yol Çizgisinin rengi Max length: 3
+*   $opacityArray: ['0.7', '0.6', '0.5'],  			 // Yol Çizgisinin Saydamlığı Max length: 3
+*   $dropStart: '#start',  							 // Başlangıç Seçim kutusunun id veya class adı
+*   $dropFinish: '#finish',  						 // Varış Seçim kutusunun id veya class adı
+*   $switch: '#locationOnOf',						 // Otomatik Konum Güncelleme Seçeneginin id veya class adı
+*   $roadOne: '.road1',								 // 1. Yol Bilgisi id veya class adı
+*   $roadTwo: '.road2',								 // 2. Yol Bilgisi id veya class adı
+*   $roadTree: '.road3',							 // 3. Yol Bilgisi id veya class adı
+*   $direction: '.directions',						 // Seçilen iki rota arasında yol çizen butonun id veya class adı
+*   $singleDirection: '.goToDirection',				 // Kendi Konumumdan yanlızca bir rotaya yol çizen butonun id veya class adı
+*   $distanceInfo: '.distanceInfo',					 // Yol Durumun Ana çerçevesinin id veya class adı
+*   $distanceText: '.distance',						 // Yol Durumun uzaklığının yazılacağı elementin id veya class adı
+*   $distanceMinutes: '.minutes'					 // Yol Durumun süresinin yazılacağı elementin id veya class adı
+*	$data : 'mapModel'								 // Json Kaynağının id si
+**/
+});
+&lt;/script&gt;
    </pre>
-       </aside> </aside>
-     <footer data-role="footer" data-id="foo1" data-position="fixed">
-    <nav data-role="navbar">
-         <ul>
-        <li> <a href="map.html" rel="external"> Tekli Map Örneği </a> </li>
-        <li> <a href="#" rel="external" > Çoklu Map Örneği </a> </li>
+    </div>
+    <div id="lesson4">
+      <h1 class="head">Marker</h1>
+      <article>
+        <p>Pluging harita üzerine marker atabilmesi için JSON objesine ihtiyaç duyar.</p>
+        <p>Bu objeyi database den yada herhangi bir kaynaktan hidden field içerisine basılabilir.</p>
+        <p>JSON objesinin adı "mapData" olmak zorunda ve tipi array olmak zorundadır.</p>
+        <p>Array in içindeki her obje 1 adet id, 1 adet latitude ve 1 adet longitude değerlerinin barındırmalıdır </p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+		<input id="mapModel" type="hidden" 
+        value='{"mapData":[
+        { 
+          "id":1,
+          "lat":"40.93218",
+          "lng":"29.12796"
+        },
+        { "id":2,"lat":"41.02092","lng":"29.12118"},
+        { "id":3,"lat":"41.03215","lng":"29.17917"},
+        { "id":4,"lat":"41.01184","lng":"29.05289"},
+        { "id":5,"lat":"41.01747","lng":"29.04367"}
+        ]}'/>
+   </pre>
+    </div>
+    <div id="lesson5">
+      <h1 class="head">Seçim Kutuları</h1>
+      <article>
+        <p>Pluging JSON objesini parse ettikten sonra, değerleri bir select option form elementine yazar.</p>
+        <p>Select elementinin içi boş bırakılabilir.</p>
+        <p>Bu elementlere verilen class veya id değeri options bölümünde "$dropStart,$dropFinish" özelliği ile aynı olmak zorundadır.</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+<select id="start"></select>
+
+<select id="finish"></select>
+  
+  
+&lt;script&gt;
+$(function(){
+    TurkcellMap.init(document.getElementById('map_canvas'),{
+        $dropStart: '#start',
+        $dropFinish: '#finish',
+    });
+});
+&lt;/script&gt;
+   </pre>
+    </div>
+    <div id="lesson6">
+      <h1 class="head">Yol Haritası Göster Butonu</h1>
+      <article>
+        <p>Pluging select option form elementinden seçilen iki lokasyon arasındaki yol haritasını çıkarmak için bu butona ihtiyaç duyar.</p>
+        <p>Bu element'e verilen class veya id değeri options bölümünde "$direction" özelliği ile aynı olmak zorundadır.</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+<a href="javascript:void(0)" class="directions"></a>
+
+&lt;script&gt;
+$(function(){
+	TurkcellMap.init(document.getElementById('map_canvas'),{
+    	$direction : '.directions',
+    });
+});
+&lt;/script&gt;
+   </pre>
+    </div>
+    <div id="lesson7">
+      <h1 class="head">Neredeyim Butonu</h1>
+      <article>
+        <p>Herhangi bir form elementi yada bir Dom un "onclick" property sinde pluging in "getGeoLocation" methoduna çagrıda bulunulması gerekir.</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+   <a href="javascript:void(0)" onClick="TurkcellMap.getGeoLocation();">Nerdeyim ?</a>
+   </pre>
+    </div>
+    <div id="lesson8">
+      <h1 class="head">Yakınımdaki Kişileri Güncelle</h1>
+      <article>
+        <p>Herhangi bir form elementi yada bir Dom un "onclick" property sinde pluging in "markerUpdate" methoduna çagrıda bulunulması gerekir.</p>
+        <p>Bu method 2 parametre ister.</p>
+        <p>1.Parametre : harita Dom unun unique id sini bekler</p>
+        <p>2.Parametre : on start event idir. Json kaynagından güncel verileri okumadan bu kaynağı update edecek fonksiyon buraya yazılmalıdır. Bu fonksiyon void tipinde olmak zorundadır.</p>
+        <p>Not: Update panel tarzı "partial-page-rendering" bir yapı kullanıyorsaniz plugin in çağrı methodunda 2. parametreyi göndermenize gerek yoktur ve çağrı script içinden yapılmalıdır. Ayrıntılar için "partial-page-rendering" örneğini inceleyin.</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+<a href="javascript:void(0)" 
+onClick="TurkcellMap.markerUpdate(document.getElementById('map_canvas'),updateToNearMe());">
+    Yakınımdaki Kişileri Güncelle
+</a>
+&lt;script&gt;
+/*jquery ajax for get method*/
+	function updateToNearMe(){
+		$.ajax({
+			type:'GET',
+			url: 'update.cshtml',
+            cache:false,
+			data:'update=true',
+			success:function(result){
+				$('#hidden').val(result);
+			},
+			error:function(err){
+				console.error(err.responseText);
+			}	
+		});
+	};
+
+/*jquery ajax for web service calling*/
+	function updateToNearMe(){
+		$.ajax({
+			type:'POST',
+			url: 'update.asmx/update',
+			data:'{"data":"true"}',
+            cache:false,
+			dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+			success:function(result){
+				$('#hidden').val(result.d);
+			},
+			error:function(err){
+				console.error(err.responseText);
+			}	
+		});
+	};
+    
+/*ASP.NET Partial Page Rendering*/    
+Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function(){
+    TurkcellMap.markerUpdate(document.getElementById('map_canvas'));
+  });
+&lt;/script&gt;
+   </pre>
+    </div>
+    <div id="lesson9">
+      <h1 class="head">İlgili Marker'a Gitmek</h1>
+      <article>
+        <p>Bu Kısım büyük bir oranda BACK-END developer'i ilgilendirmektedir.</p>
+        <p>Ekrana Yazdırdığımız Dom'ların onclick eventlerinde plugin'in "singleCenter" methoduna çağrıda bulunulur. Bu method 1 parametre ister.</p>
+        <p>Bu Parametrede GeoLocation olması şart koşulur. latitude ve logitude degerleri ","(virgül) ile ayrılmalıdır.</p>
+      </article>
+      <h2>Örnek :</h2>
+      <pre class="brush: js; html-script: true">
+    <div class="markerListFrame">
+      <ul>
+        <asp:Repeater ID="Repeater1" runat="server">
+          <itemtemplate>
+            <li> 
+              <a href="javascript:void(0)" onClick="TurkcellMap.singleCenter('40.93218,29.12796')"> 
+                <img src="assets/imgs/1.png" />1. Nolu Marker a Git
+              </a> 
+            </li>
+          </itemtemplate> 
+        </asp:Repeater>
       </ul>
-       </nav>
-  </footer>
-   </section>
-<article class="article">
-     <pre id="home" class="brush: js; html-script: true">
-<div class="deneme"></div>
-<script>
-function ali (){
-	return false;
-};
- </script>
+    </div>
    </pre>
-   </article>
-</body>
+    </div>
+  </article>
+  </body>
 </html>
